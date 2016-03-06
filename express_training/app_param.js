@@ -8,13 +8,13 @@ app.param('name', function (req, res, nex){
    next(); 
 });
 
+
 //then--,,
 
 app.get('/blocks/:name', function(req, res){
    var description = blocks[req.blockName];
    ... 
 });
-
 
 
 ///----------------
