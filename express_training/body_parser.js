@@ -32,3 +32,13 @@ var createCity = function(name, description){
   cities[name] = description;
   return name; 
 };
+
+app.delete('/cities/:name', function(req, res){
+  if(cities[req.cityName]){
+      delete cities[req.cityName];
+  res.sendStatus(200);
+  } else {
+    res.sendStatus(404);
+  }
+
+});
