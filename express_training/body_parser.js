@@ -9,6 +9,26 @@ var parseUrlencoded = bodyParser.urlencoded({extended: false});
 var blocks = {};
 
 app.post('/blocks', parseUrlencoded, function(req, res){
-    var newBlock = request.body;
+    var newBlock = req.body;
     blocks[newBlock.name] = newBlock.description;
 })
+
+
+//----------------------
+
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+var parseUrlencoded = bodyParser.urlencoded({extended: false});
+
+app.post('/cities', parseUrlencoded, function (request, response) {
+  var city = createCity(request.body.name, request.body.description);
+  response.status(201).json(city);
+});
+
+app.listen(3000);
+
+var createCity = function(name, description){
+  cities[name] = description;
+  return name; 
+};
